@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 
+
 int main(int ac , char **av)
 {
 	if (ac != 4)
@@ -13,11 +14,25 @@ int main(int ac , char **av)
 	std::ofstream file1("bele");
 
 	std::string line;
-	// int pos = 0;
+	size_t pos = 0;
+	std::string line1;
 	while(std::getline(file, line))
 	{
-		
-		file1 << line << std::endl;
+		if(!s2.empty())
+		{
+			while (line.find(s1, 0) != std::string::npos)
+			{
+				pos = line.find(s1,0);
+				line1.assign(line, 0,pos);
+				line1.append(s2);
+				file1 << line1;
+				pos += s1.length();
+				line.erase(0, pos);
+			}
+		}
+		if (!line.empty())
+			file1 << line;
+		file1 << "\n";
 	}
 	file.close();
 	file1.close();
