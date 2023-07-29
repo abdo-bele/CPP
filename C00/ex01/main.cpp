@@ -1,10 +1,17 @@
 #include "phonebook.hpp"
 
-int main()
+int main(int ac, char **av)
 {
 	PhoneBook book;
+	(void)av;
 	// Contact cnt1 = Contact("abdellah", "archtouy", "0613221074", "bele", "bele her");
 	std::string input;
+
+	if (ac != 1)
+	{
+		std::cout << "to many argument.";
+		return 1;
+	}
 
 	while (1)
 	{

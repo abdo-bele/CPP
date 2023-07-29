@@ -1,12 +1,14 @@
 CC := g++
-CFLAGS := -std=c++11 -Wall
+CFLAGS = -std=c++11 -Wall
 
-TARGET := megaphone
+TARGET = megaphone
 
-SOURCES := megaphone.cpp
+SOURCES = megaphone.cpp
 OBJECTS = $(SOURCES:%.c=%.o)
 
-$(TARGET): $(OBJECTS)
+all : $(NAME)
+
+$(NAME): $(OBJECTS)
 	$(CC) $^ -o $(TARGET)
 
 %.o: %.cpp

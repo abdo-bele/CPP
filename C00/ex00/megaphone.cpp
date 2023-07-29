@@ -1,5 +1,20 @@
 #include <iostream>
 
+void    ft_toupper(char *str)
+{
+    std::string line;
+    int i = 0;
+
+    line = str;
+    while (i < line.length())
+    {
+        if (line[i]  >= 'a' && line[i] <= 'z')
+            std::toupper(line[i]);
+        i++;
+    }
+    std::cout << line ;
+}
+
 int main(int ac, char **av)
 {
     if (ac < 2)
@@ -11,14 +26,7 @@ int main(int ac, char **av)
     int i = 0;
     while (av[j])
     {
-        while(av[j][i])
-        {
-            if (av[j][i] >= 'a' && av[j][i] <= 'z')
-                std::toupper(av[j][i]);
-            std::cout << av[j][i];
-            i++;
-        }
-        i=0;
+        ft_toupper(av[j]);
         j++;
     }
 }
