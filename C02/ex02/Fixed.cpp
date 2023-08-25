@@ -9,7 +9,7 @@ Fixed::Fixed()
 Fixed::Fixed(const int a)
 {
     std::cout << "Int constructer is called" << std::endl;
-    this->i = roundf(a *(1 << this->bit_f));
+    this->i = a << this->bit_f;
 }
 Fixed::Fixed(const float a)
 
@@ -21,7 +21,7 @@ Fixed::Fixed(const float a)
 Fixed::Fixed(const Fixed &a)
 {
     std::cout << "copy constructer is called" << std::endl;
-    this->operator=(a);
+    *this = a;
 }
 
 int Fixed::getRawBits( void )
