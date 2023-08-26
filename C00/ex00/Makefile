@@ -4,7 +4,7 @@ CFLAGS = -std=c++11 -Wall
 TARGET = megaphone
 
 SOURCES = megaphone.cpp
-OBJECTS = $(SOURCES:%.c=%.o)
+OBJECTS = $(SOURCES:%.cpp=%.o)
 
 all : $(NAME)
 
