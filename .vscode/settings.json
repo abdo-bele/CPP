@@ -69,6 +69,8 @@
         "numeric": "cpp",
         "random": "cpp",
         "fstream": "cpp",
-        "numbers": "cpp"
+        "numbers": "cpp",
+        "iomanip": "cpp",
+        "stack": "cpp"
     }
 }

@@ -11,8 +11,7 @@ int main(int ac , char **av)
 	std::string s1 = av[2];
 	std::string s2 = av[3];
 	std::ifstream file(filename);
-	std::ofstream file1("bele");
-
+	std::ofstream file1(filename + ".replace");
 	std::string line;
 	size_t pos = 0;
 	std::string line1;
@@ -20,7 +19,7 @@ int main(int ac , char **av)
 	{
 		if(!s2.empty())
 		{
-			while (line.find(s1, 0) != std::string::npos)
+			while (line.find(s1, 0) != std::string::npos && !s1.empty() && !s2.empty())
 			{
 				pos = line.find(s1,0);
 				line1.assign(line, 0,pos);

@@ -2,10 +2,12 @@
 
 Harl::Harl()
 {
+    std::cout << "Default constructer is called" << std::endl;
 }
 
 Harl::~Harl()
 {
+    std::cout << "destructer is called" << std::endl;
 }
 
 void    Harl::complain(std::string level)

@@ -2,11 +2,12 @@
 
 Zombie::Zombie()
 {
+    std::cout << "Default constructer is called" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-
+    std::cout << "destructer is called" << std::endl;
 }
 
 void	Zombie::set_name(std::string name)
