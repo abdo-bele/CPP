@@ -6,10 +6,10 @@ void    ft_toupper(char *str)
     int i = 0;
 
     line = str;
-    while (i < line.length())
+    while (i < (int)line.length())
     {
         if (line[i]  >= 'a' && line[i] <= 'z')
-            std::toupper(line[i]);
+            line[i] = std::toupper(line[i]);
         i++;
     }
     std::cout << line ;
@@ -23,7 +23,6 @@ int main(int ac, char **av)
         return (1);
     }
     int j = 1;
-    int i = 0;
     while (av[j])
     {
         ft_toupper(av[j]);

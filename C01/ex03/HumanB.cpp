@@ -21,7 +21,7 @@ HumanB::~HumanB()
 void    HumanB::attack(void)
 {
 	if (this->weapon)
-		std::cout << this->name << "   "<< this->weapon->getType() <<std::endl;
+		std::cout << this->name << " attacks with their "<< this->weapon->getType() <<std::endl;
 }
 
 void    HumanB::setWeapon(Weapon &wep)

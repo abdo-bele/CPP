@@ -1,7 +1,8 @@
 #include "phonebook.hpp"
 #include <string.h>
+#include <sstream>
 
-void	add_contact(Contact new_contact, int *index, PhoneBook *book)
+void	PhoneBook::add_contact(Contact new_contact, int *index, PhoneBook *book)
 {
 	if (*index > 7)
 		*index = 0;
@@ -11,6 +12,17 @@ void	add_contact(Contact new_contact, int *index, PhoneBook *book)
 	book->contacts[*index].ft_add_phome_number(new_contact.ft_get_phone_number());
 	book->contacts[*index].ft_add_darkest_secret(new_contact.ft_get_darkest_secret());
 	(*index)++;
+}
+
+Contact PhoneBook::ft_getcontact(int index)
+{
+	Contact b;
+	b.ft_add_first_name(contacts[index].ft_get_first_name());
+	b.ft_add_darkest_secret(contacts[index].ft_get_darkest_secret());
+	b.ft_add_last_name(contacts[index].ft_get_last_name());
+	b.ft_add_nicke_name(contacts[index].ft_get_nicke_name());
+	b.ft_add_phome_number(contacts[index].ft_get_phone_number());
+	return (b);
 }
 
 void	ft_print_contact(Contact *contacts, int i)
@@ -40,12 +52,14 @@ void	ft_search(PhoneBook *book, int i)
 {
 	int index = 0;
 
+	(void)i;
+	(void)book;
 	while (index + 1 < 10)
 	{
 		if (index + 1 == i)
 		{
-			std::cout << book->contacts[0].ft_get_first_name()<< std::endl;
-			ft_print_contact(&(book->contacts[index]), i);
+			Contact a = book->ft_getcontact(index);
+			ft_print_contact(&a, i);
 		}
 		index++;
 	}
@@ -53,11 +67,11 @@ void	ft_search(PhoneBook *book, int i)
 
 }
 
-void	ft_printt(Contact *contacts, int i)
+void	ft_printt(Contact contacts, int i)
 {
 	std::string input;
 
-	input = contacts->ft_get_first_name();
+	input = contacts.ft_get_first_name();
 	std::cout << "#    "<< i << "   |    ";
 	if (input.length() > 10)
 		input[9] = '.';
@@ -70,7 +84,7 @@ void	ft_printt(Contact *contacts, int i)
 	if (input.length() > 10 || input.empty())
 		input.resize(10, ' ');
 	std::cout << input;
-	input = contacts->ft_get_last_name();
+	input = contacts.ft_get_last_name();
 	std::cout << "|    ";
 	if (input.length() > 10)
 		input[9] = '.';
@@ -83,7 +97,7 @@ void	ft_printt(Contact *contacts, int i)
 	if (input.length() > 10 || input.empty())
 		input.resize(10, ' ');
 	std::cout << input;
-	input = contacts->ft_get_nicke_name();
+	input = contacts.ft_get_nicke_name();
 	std::cout << "|    ";
 	if (input.length() > 10)
 		input[9] = '.';
@@ -109,7 +123,7 @@ void	ft_get_contact(PhoneBook *book)
 	std::cout << "# index  #  first name  #  last name   #   nicke name #"<< std::endl;
 	while (i < 9)
 	{
-		ft_printt(&(book->contacts[i-1]), i);
+		ft_printt(book->ft_getcontact(i-1) ,i);
 		i++;
 	}
 	std::cout << "#######################################################"<< std::endl;
@@ -123,7 +137,9 @@ void	ft_get_contact(PhoneBook *book)
 			std::cout << "Enter a number from 1 to 8"<< std::endl;
 			continue;
 		}
-		index = std::stoi(input);
+		std::stringstream a;
+		a << input;
+		a >> index;
 		if (index > 8 || index < 1)
 		{
 			std::cout << "Enter a number from 1 to 8"<< std::endl;
@@ -131,7 +147,8 @@ void	ft_get_contact(PhoneBook *book)
 		else
 			break;
 	}
-	if (book->contacts[index - 1].ft_get_first_name().empty())
+	Contact l = book->ft_getcontact(index - 1);
+	if (l.ft_get_first_name().empty())
 		std::cout << "no contact for this index." << std::endl;
 	else if (!input.empty())
 		ft_search(book, index);
@@ -141,11 +158,11 @@ int is_number(std::string input)
 {
 	unsigned int i = 0;
 
-	if (input.length() != 10)	
-	{
-		std::cout << "number not accepted" << std::endl;
-		return (1);
-	}
+	// if (input.length() != 10)	
+	// {
+	// 	std::cout << "number not accepted" << std::endl;
+	// 	return (1);
+	// }
 	while(i < input.length())
 	{
 		if (!std::isdigit(input[i]))
@@ -226,5 +243,14 @@ void	ft_add_contact(PhoneBook *book)
 			break;
 	}
 	new_contact.ft_add_darkest_secret(input);
-	add_contact(new_contact, &i, book);
+	book->add_contact(new_contact, &i, book);
+}
+
+PhoneBook::PhoneBook()
+{
+	// std::cout << "Default constructer is called" << std::endl;
+}
+PhoneBook::~PhoneBook()
+{
+    // std::cout << "destructer is called" << std::endl;
 }

@@ -44,9 +44,9 @@ void Contact::ft_add_phome_number(std::string number)
 
 Contact::Contact()
 {
-	std::cout << "Default constructer is called" << std::endl;
+	// std::cout << "Default constructer is called" << std::endl;
 }
 Contact::~Contact()
 {
-    std::cout << "destructer is called" << std::endl;
+    // std::cout << "destructer is called" << std::endl;
 }

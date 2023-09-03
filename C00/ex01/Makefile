@@ -18,9 +18,9 @@ $(NAME): $(OBJ)
 	$(CC)  -std=c++98 -Wall -Wextra -Werror -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ) $(OBJB)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME) $(NAMEB)
+	@rm -rf $(NAME)
 
 re: fclean all

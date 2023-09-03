@@ -6,11 +6,19 @@
 int main(int ac , char **av)
 {
 	if (ac != 4)
+	{
+		std::cout << "ERROR" << std::endl;
 		return (1);
+	}
 	std::string filename = av[1];
 	std::string s1 = av[2];
 	std::string s2 = av[3];
 	std::ifstream file(filename);
+	if (!file.is_open())
+	{
+		std::cout << "ERROR" << std::endl;
+		return 0;
+	}
 	std::ofstream file1(filename + ".replace");
 	std::string line;
 	size_t pos = 0;

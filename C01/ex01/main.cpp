@@ -14,7 +14,9 @@ int main()
     // zom->announce();
     // delete zom;
 
-    zom = zombieHorde(3, "abdo");
+    zom = zombieHorde(-1, "abdo");
+    if (!zom)
+        return 0;
     int i =0;
     while (i < 3)
     {

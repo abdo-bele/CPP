@@ -1,20 +1,25 @@
-CC := g++
-CFLAGS = -std=c++11 -Wall
+NAME = megaphone
 
-TARGET = megaphone
+SRC = megaphone.cpp
+ 
+OBJ = $(SRC:%.cpp=%.o)
 
-SOURCES = megaphone.cpp
-OBJECTS = $(SOURCES:%.cpp=%.o)
+CPPFALGS =  -std=c++98 -Wall -Wextra -Werror -g
 
-all : $(NAME)
+CC = c++
 
-$(NAME): $(OBJECTS)
-	$(CC) $^ -o $(TARGET)
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC)  -std=c++98 -Wall -Wextra -Werror $(OBJ) -o $@
+%.o : %.cpp
+	$(CC)  -std=c++98 -Wall -Wextra -Werror -c $< -o $@
 
 clean:
-	@rm -rf $(BUILDDIR) $(TARGET)
+	@rm -rf $(OBJ)
 
-.PHONY: clean
+fclean: clean
+	@rm -rf $(NAME)
+
+re: fclean all
