@@ -2,8 +2,7 @@
 
 int main( void ) {
 Fixed a;
-a.setRawBits(4);
-Fixed b( a );
+Fixed b(a);
 Fixed c;
 c = b;
 std::cout << a.getRawBits() << std::endl;

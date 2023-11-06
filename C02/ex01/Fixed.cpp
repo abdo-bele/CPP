@@ -1,5 +1,7 @@
 #include "Fixed.hpp"
 
+const int Fixed::bit_f = 8;
+
 Fixed::Fixed()
 {
     this->i = 0;
@@ -59,7 +61,7 @@ float Fixed::toFloat( void ) const
 int Fixed::toInt( void ) const
 {
     int a;
-    a = ((float)this->i / (float)(1 << this->bit_f));
+    a = (this->i << this->bit_f);
     return (a);
 }
 

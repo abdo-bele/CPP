@@ -9,7 +9,7 @@ class Fixed
 {
 private:
     int i;
-    static const int bit_f = 8;
+    static const int bit_f;
     
 public:
     Fixed();
@@ -22,9 +22,8 @@ public:
     int toInt( void ) const;
     int getRawBits( void );
     void setRawBits( int const raw );
-    friend std::ostream &operator<<(std::ostream &out, const Fixed &a);
 };
-
+    std::ostream &operator<<(std::ostream &out, const Fixed &a);
 
 
 

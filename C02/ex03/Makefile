@@ -1,6 +1,6 @@
-NAME = Fixed
+NAME = Point
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Point.cpp Fixed.cpp
  
 OBJ = $(SRC:%.cpp=%.o)
 
@@ -8,7 +8,7 @@ CPPFALGS =  -std=c++98 -Wall -Wextra -Werror
 
 CC = c++
 
-INCLUDE = Fixed.hpp
+INCLUDE = Fixed.hpp Point.hpp
 
 all: $(NAME)
 

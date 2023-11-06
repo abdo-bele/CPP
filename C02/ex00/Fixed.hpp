@@ -6,17 +6,17 @@
 class Fixed
 {
 private:
-    int i;
-    static const int bit_f = 8;
+    int raw;
+    static const int bit_f;
     
 public:
     Fixed();
     Fixed(const Fixed &a);
+    ~Fixed();
+    int getRawBits( void ) const;
+    void setRawBits( int const raw );
     Fixed   &operator=(const Fixed &s);
 
-    ~Fixed();
-    int getRawBits( void );
-    void setRawBits( int const raw );
 };
 
 

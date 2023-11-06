@@ -19,9 +19,9 @@ $(NAME): $(OBJ)
 	$(CC)  $(CPPFALGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ) $(OBJB)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME) $(NAMEB)
+	@rm -rf $(NAME)
 
 re: fclean all
