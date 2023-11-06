@@ -1,6 +1,6 @@
 NAME = Point
 
-SRC = main.cpp Point.cpp Fixed.cpp
+SRC = main.cpp Point.cpp Fixed.cpp bsp.cpp
  
 OBJ = $(SRC:%.cpp=%.o)
 
