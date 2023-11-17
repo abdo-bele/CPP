@@ -6,7 +6,7 @@ INCLUDE = ICharcter.hpp Character.hpp Ice.hpp Cure.hpp MateriaSource.hpp AMateri
 
 OBJ = $(SRC:%.cpp=%.o)
 
-CPPFALGS =  -std=c++98 -Wall -Wextra -Werror
+CPPFALGS =  -std=c++98 -Wall -Wextra -Werror #-fsanitize=address
 
 CC = c++
 

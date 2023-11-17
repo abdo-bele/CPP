@@ -61,7 +61,7 @@ float Fixed::toFloat( void ) const
 int Fixed::toInt( void ) const
 {
     int a;
-    a = (this->i << this->bit_f);
+    a = (this->i >> this->bit_f);
     return (a);
 }
 

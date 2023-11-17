@@ -2,27 +2,27 @@
 
 Ice::Ice()
 {
+    // std::cout << "Ice default constructer called" << std::endl;
     this->type = "ice";
-    std::cout << "Ice default constructer called" << std::endl;
 }
 
 Ice::Ice(std::string const &type)
 {
+    // std::cout << "Ice  constructer called" << std::endl;
     this->type = type;
-    std::cout << "Ice  constructer called" << std::endl;
 }
 
 Ice::Ice(const Ice &other)
 {
+    // std::cout << "Ice copy constructer called" << std::endl;
     *this = other;
-    std::cout << "Ice copy constructer called" << std::endl;
 }
 
 Ice &Ice::operator=(const Ice &obj)
 {
+    // std::cout << "Ice copy assignement operator called" << std::endl;
     if (this != &obj)
         this->type = obj.type;
-    std::cout << "Ice copy assignement operator called" << std::endl;
     return (*this);
 }
 
@@ -39,5 +39,5 @@ void    Ice::use(ICharacter &target)
 
 Ice::~Ice()
 {
-    std::cout << "Ice default destructer called" << std::endl;
+    // std::cout << "Ice default destructer called" << std::endl;
 }

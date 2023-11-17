@@ -5,12 +5,12 @@
 #include "AMateria.hpp"
 #include "ICharcter.hpp"
 
-
 class Character : public ICharacter
 {
     private:
         std::string name;
         AMateria *amateria[4];
+        AMateria *aamateria[1000];
 
     public :
         Character(std::string const & type);

@@ -9,7 +9,6 @@ class MateriaSource : public IMateriaSource
         AMateria *amateria[4];
 
     public:
-        // MateriaSource(std::string const & type);
         MateriaSource(const MateriaSource &other);
         MateriaSource &operator=(const MateriaSource &);
         MateriaSource();

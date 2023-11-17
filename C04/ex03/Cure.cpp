@@ -2,27 +2,27 @@
 
 Cure::Cure()
 {
+    // std::cout << "Cure default constructer called" << std::endl;
     this->type = "cure";
-    std::cout << "Cure default constructer called" << std::endl;
 }
 
 Cure::Cure(std::string const &type)
 {
+    // std::cout << "Cure constructer called" << std::endl;
     this->type = type;
-    std::cout << "Cure  constructer called" << std::endl;
 }
 
 Cure::Cure(const Cure &other)
 {
+    // std::cout << "Cure copy constructer called" << std::endl;
     *this = other;
-    std::cout << "Cure copy constructer called" << std::endl;
 }
 
 Cure &Cure::operator=(const Cure &obj)
 {
+    // std::cout << "Cure copy assignement operator called" << std::endl;
     if (this != &obj)
         this->type = obj.type;
-    std::cout << "Cure copy assignement operator called" << std::endl;
     return (*this);
 }
 
@@ -39,5 +39,5 @@ void Cure::use(ICharacter &target)
 
 Cure::~Cure()
 {
-    std::cout << "Cure default destructer called" << std::endl;
+    // std::cout << "Cure default destructer called" << std::endl;
 }
