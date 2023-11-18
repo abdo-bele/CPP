@@ -4,14 +4,9 @@
 #include "Cure.hpp"
 #include "MateriaSource.hpp"
 #include "AMateria.hpp"
-void fun()
-{
-    system("leaks main");
-}
 
 int main()
 {
-    atexit(fun);
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -29,6 +24,5 @@ int main()
     delete bob;
     delete me;
     delete src;
-    // while (1);
     return 0;
 }

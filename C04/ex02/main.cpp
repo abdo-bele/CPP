@@ -2,14 +2,8 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-void fun()
-{
-    system("leaks AAnimal");
-}
-
 int main()
 {
-    // atexit(fun);
     // const AAnimal* j = new Dog();
     // const AAnimal* i = new Cat();
 
