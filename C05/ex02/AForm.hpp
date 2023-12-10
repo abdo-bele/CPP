@@ -13,8 +13,8 @@ class AForm
 private:
     const std::string Name;
     bool  _signed;
-    int   _exec_it;
-    int   _sign_it;
+    const int   _sign_it;
+    const int   _exec_it;
 
 public:
     AForm();
@@ -39,9 +39,6 @@ public:
     int get_Sign_it() const;
     int get_Exec_it() const;
     int get_Sign() const;
-    void set_Sign_it(int);
-    void set_Exec_it(int);
-    void set_Sign(int);
     void    increment();
     void    decrement();
     void    beSigned(const Bureaucrat &a);

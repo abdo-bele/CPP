@@ -1,10 +1,10 @@
-NAME = Bureaucrat
+NAME = Main
 
-SRC = main.cpp Form.cpp  Bureaucrat.cpp 
+SRC = main.cpp ScalarConverter.cpp  
 
-INCLUDE = Form.hpp Bureaucrat.hpp 
+INCLUDE = ScalarConverter.hpp 
 
-OBJ = main.o Form.o Bureaucrat.o 
+OBJ = $(SRC:%.cpp=%.o)
 
 CPPFALGS =  -std=c++98 -Wall -Wextra -Werror
 
@@ -13,10 +13,10 @@ CC = c++
 all: $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
-	$(CC)   $(CPPFALGS) $(OBJ) -o $@ 
+	$(CC)   $(CPPFALGS) $(OBJ) -o $@
 
 %.o : %.cpp $(INCLUDE)
-	$(CC)  $(CPPFALGS) -c $< -o $@ 
+	$(CC)  $(CPPFALGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ)

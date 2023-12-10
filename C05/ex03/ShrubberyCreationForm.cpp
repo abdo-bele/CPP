@@ -1,13 +1,16 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : target(target)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation", 0, 0), target("target")
 {
     std::cout << "constructer called" << std::endl;
-    this->set_Exec_it(137);
-    this->set_Sign_it(145);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : target(other.target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm("ShrubberyCreation", 137, 145), target(target)
+{
+    std::cout << "constructer called" << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) :AForm("ShrubberyCreation", other.get_Exec_it(), other.get_Sign_it()), target(other.target)
 {
     std::cout << "ShrubberyCreationForm copy constructer called" << std::endl;
 }
@@ -41,6 +44,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         outfile << "_- -   | | _- _\n";
         outfile << "  _ -  | |   -_\n";
         outfile << "      // \\\n";
+        outfile.close();
     }
     else if(executor.getGrade() >=  this->get_Exec_it())
         throw Bureaucrat::GradeTooLowException();

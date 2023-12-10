@@ -1,31 +1,31 @@
 #include "AForm.hpp"
 
-AForm::AForm()
+AForm::AForm() : Name("name") , _sign_it(0), _exec_it(0)
 {
     std::cout << "default constructer called" << std::endl;
-}
-AForm::AForm(std::string const name, int _exec_it, int _sign_it): Name(name) , _exec_it(_exec_it), _sign_it(_sign_it)
-{
-    if (_exec_it < 1)
-        throw "execut grade to high";
-    if (_sign_it < 1)
-        throw "sign grade to high";
-    if (_exec_it > 150)
-        throw "execut grade to low";
-    if (_sign_it > 150)
-        throw "sign grade to low";
-    std::cout << "constructer called" << std::endl;
     _signed = false;
 }
 
-AForm::AForm(const AForm &other) : Name(other.Name)
+AForm::AForm(std::string const name, int _exec_it, int _sign_it): Name(name) , _sign_it(_sign_it), _exec_it(_exec_it)
+{
+    std::cout << "constructer called" << std::endl;
+    if (_exec_it < 1)
+        throw GradeTooHighException();
+    if (_sign_it < 1)
+        throw GradeTooHighException();
+    if (_exec_it > 150)
+        throw GradeTooLowException();
+    if (_sign_it > 150)
+        throw GradeTooLowException();
+    _signed = false;
+}
+
+AForm::AForm(const AForm &other) : Name(other.Name), _sign_it(other._sign_it), _exec_it(other._exec_it)
 {
     std::cout << "AForm copy constructer called" << std::endl;
     if (this != &other)
     {
         this->_signed = false;
-        this->_sign_it = other._sign_it;
-        this->_exec_it = other._exec_it;
     }
 }
 
@@ -35,8 +35,6 @@ AForm &AForm::operator=(const AForm &other)
     if (this != &other)
     {
         this->_signed = false;
-        this->_sign_it = other._sign_it;
-        this->_exec_it = other._exec_it;
     }
     return (*this);
 }
@@ -61,7 +59,6 @@ std::string AForm::getName() const
     return this->Name;
 }
 
-
 int AForm::get_Sign_it() const
 {
     return this->_sign_it;
@@ -77,20 +74,6 @@ int AForm::get_Sign() const
     return this->_signed;
 }
 
-void AForm::set_Sign_it(int a)
-{
-    this->_sign_it = a;
-}
-
-void AForm::set_Exec_it(int a)
-{
-    this->_exec_it = a;
-}
-
-void AForm::set_Sign(int a)
-{
-    this->_signed = a;
-}
 
 void    AForm::beSigned(const Bureaucrat &a)
 {

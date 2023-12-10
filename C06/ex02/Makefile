@@ -1,22 +1,22 @@
-NAME = Bureaucrat
+NAME = Main
 
-SRC = main.cpp Bureaucrat.cpp 
+SRC = main.cpp Base.cpp  
 
-INCLUDE = Bureaucrat.hpp 
+INCLUDE = Base.hpp 
 
 OBJ = $(SRC:%.cpp=%.o)
 
-CXXFALGS =  -std=c++98 -Wall -Wextra -Werror
+CPPFALGS =  -std=c++98 -Wall -Wextra -Werror
 
 CC = c++
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
-	$(CC)   $(CXXFALGS) $(OBJ) -o $@
+	$(CC)   $(CPPFALGS) $(OBJ) -o $@
 
 %.o : %.cpp $(INCLUDE)
-	$(CC)  $(CXXFALGS) -c $< -o $@
+	$(CC)  $(CPPFALGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJ)

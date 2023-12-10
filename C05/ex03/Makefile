@@ -1,8 +1,8 @@
 NAME = Bureaucrat
 
-SRC = main.cpp AForm.cpp  Bureaucrat.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRC = main.cpp AForm.cpp  Bureaucrat.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
-INCLUDE = AForm.hpp Bureaucrat.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+INCLUDE = AForm.hpp Bureaucrat.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
@@ -25,3 +25,5 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+
+.Phony: clean

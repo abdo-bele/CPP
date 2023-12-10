@@ -3,7 +3,6 @@
 
 
 #include <iostream>
-#include "AForm.hpp"
 
 class Bureaucrat
 {
@@ -23,7 +22,6 @@ public:
     {
         public :
             const char* what() const throw();
-            // std::terminate
     };
 
     class GradeTooLowException : public std::exception

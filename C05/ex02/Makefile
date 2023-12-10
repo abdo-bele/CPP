@@ -25,3 +25,5 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
+
+.Phony: clean

@@ -8,7 +8,7 @@ int main()
         Bureaucrat b("bele", 150);
         Form f("fff", 15, 5);
         f.beSigned(a);
-        std::cout <<f.get_Sign() << std::endl;
+        std::cout <<f << std::endl;
         b.signForm(f);
     }
     catch(const std::exception& e)

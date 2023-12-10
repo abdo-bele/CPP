@@ -22,37 +22,34 @@ Intern &Intern::operator=(const Intern &other)
     return (*this);
 }
 
-const char * Intern::FormNotExiste::what() const throw()
-{
-    return "this form doesn't exist";
-}
-
 Intern::~Intern()
 {
     std::cout << "destructer called" << std::endl;
 }
 
-AForm * Intern::makeForm(std::string &Fname, std::string &target)
+AForm * Intern::makeForm(const std::string &Fname, const std::string &target)
 {
     std::string a[] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-    int i;
-    for (i = 0; i < 3; i++)
-    {
-        if (Fname == a[i])
-            break;
-    }
+    int i = (Fname == a[0]) * 1 + (Fname == a[1]) * 2 + (Fname == a[2]) * 3;
+    // int i;
+    // for (i = 0; i < 3; i++)
+    // {
+    //     if (Fname == a[i])
+    //         break;
+    // }
     switch (i)
     {
-        case 0:
-            std::cout << "Intern creats" << Fname << std::endl;
-            return new RobotomyRequestForm(target);
         case 1:
-            std::cout << "Intern creats" << Fname << std::endl;
-            return new PresidentialPardonForm(target);
+            std::cout << "Intern creats " << Fname << std::endl;
+            return new RobotomyRequestForm(target);
         case 2:
-            std::cout << "Intern creats" << Fname << std::endl;
+            std::cout << "Intern creats " << Fname << std::endl;
+            return new PresidentialPardonForm(target);
+        case 3:
+            std::cout << "Intern creats " << Fname << std::endl;
             return new ShrubberyCreationForm(target);
         default:
-            throw ::Intern::FormNotExiste();
+            std::cout << "Intern creats " << Fname << std::endl;
+            return NULL;
     }
 }

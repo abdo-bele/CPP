@@ -71,6 +71,11 @@
         "fstream": "cpp",
         "numbers": "cpp",
         "iomanip": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "climits": "cpp",
+        "__functional_03": "cpp",
+        "filesystem": "cpp",
+        "__cxx_version": "cpp",
+        "span": "cpp"
     }
 }

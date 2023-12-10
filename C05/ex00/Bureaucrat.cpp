@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() : Name( "<unknown>"), grade(1)
 {
-    // !!!!
+    std::cout << "default constructer called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string const name, int grade): Name(name)
@@ -39,6 +39,7 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ("Bureaucrat to high");
 }
+
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("Bureaucrat to low");
@@ -48,6 +49,7 @@ std::string Bureaucrat::getName() const
 {
     return this->Name;
 }
+
 int Bureaucrat::getGrade() const
 {
     return this->grade;
@@ -61,16 +63,16 @@ void    Bureaucrat::increment()
         throw GradeTooHighException();
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
-{
-    out << obj.getName() << " , bureaucrat grade " << obj.getGrade();
-    return out;
-}
-
 void    Bureaucrat::decrement()
 {
     if (this->grade < 150)
         this->grade++;
     else
         throw GradeTooLowException();
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
+{
+    out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    return out;
 }

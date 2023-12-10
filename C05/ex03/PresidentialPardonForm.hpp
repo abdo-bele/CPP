@@ -13,6 +13,7 @@ class PresidentialPardonForm : public AForm
         std::string target;
 
     public:
+        PresidentialPardonForm();
         PresidentialPardonForm(std::string const &);
         PresidentialPardonForm(const PresidentialPardonForm &other);
         PresidentialPardonForm &operator=(const PresidentialPardonForm &);
